@@ -1,0 +1,34 @@
+{
+	"name": "@jdes/mutex",
+	"version": "1.0.0",
+	"description": "Asynchronous, synchronous and delayed Mutex with Promises.",
+	"author": "Jean Desravines <hi@jeandesravines.com> (http://www.jeandesravines.com)",
+	"scripts": {
+		"test": "istanbul cover _mocha -- -R spec"
+	},
+	"main": "lib/Mutex.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jeandesravines/mutex.git"
+	},
+	"bugs": {
+		"url": "https://github.com/jeandesravines/mutex/issues"
+	},
+	"keywords": [
+		"mutex",
+		"promise",
+		"synchronous",
+		"asynchronous",
+		"es6"
+	],
+	"devDependencies": {
+		"chai": "^3.5.0",
+		"mocha": "^2.5.3",
+		"istanbul": "^0.4.2"
+	},
+	"homepage": "https://github.com/jeandesravines/mutex",
+	"license": "MIT",
+	"engines": {
+		"node": ">=6.2.2"
+	}
+}
