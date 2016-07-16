@@ -131,7 +131,7 @@ mutex.asynchronous()
     });
 ```
 
-#### delayed(delay; number): Promise
+#### delayed(delay: number): Promise
 
 * `delay` the delay in ms
 * return a Promise resolved with the unlock callback if the mutex success to lock.
