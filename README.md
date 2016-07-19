@@ -1,6 +1,6 @@
 # Mutex
 
-[![Build Status](https://travis-ci.com/jeandesravines/mutex.svg?token=fzgzvZNxj4GGBUGtqooK&branch=master)](https://travis-ci.com/jeandesravines/mutex)
+[![Build Status](https://travis-ci.org/jeandesravines/mutex.svg)](https://travis-ci.org/jeandesravines/mutex)
 [![Coverage Status](https://coveralls.io/repos/github/jeandesravines/mutex/badge.svg?branch=master)](https://coveralls.io/github/jeandesravines/mutex?branch=master)
 [![Node](https://img.shields.io/badge/node-6.2.2-blue.svg)](https://github.com/jeadesravines/mutex)
 [![Npm](https://img.shields.io/badge/npm-3.5.10-blue.svg)](https://github.com/jeadesravines/mutex)
