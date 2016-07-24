@@ -8,7 +8,7 @@
 Asynchronous, synchronous and delayed Mutex with ES6 and Promises.
 
 
-## Table of content
+## Table of contents
 
 * [Setup](#setup)
 * [Usage](#usage)
@@ -50,9 +50,9 @@ Example:
 
 ```javascript
 // Instantiate
-let mutex = new Mutex();
-let name = null;
-let iterations = 0;
+let mutex = new Mutex(),
+    name = null,
+    iterations = 0;
 
 // Lock and perform and unlock asynchronously
 mutex.asynchronous()

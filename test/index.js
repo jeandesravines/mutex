@@ -1,64 +1,67 @@
 'use strict';
 
-const {describe, it} = require('mocha');
+const {afterEach, beforeEach, describe, it} = require('mocha');
 const {expect, should} = require('chai');
-const Mutex = require('../lib/Mutex');
+const Mutex = require('../lib/service/Mutex');
 
 describe('Mutex', () => {
-	describe('Constructor', () => {
-		it('should create a Mutex', () => {
-			expect(new Mutex()).to.be.instanceOf(Mutex);
-		});
+	/**
+	 * @type {Mutex}
+	 */
+	let mutex;
+
+	beforeEach('Instantiate', () => {
+		mutex = new Mutex();
 	});
 
-	describe('synchronous', () => {
-		let mutex = new Mutex();
+	afterEach('Destroy', () => {
+		mutex = null;
+	});
 
+	describe('Synchronous', () => {
 		it('should lock', () => {
-			return expect(mutex.lock()).to.equal(true);
-		});
-
-		it('should unlock', () => {
-			return mutex.unlock();
-		});
-
-		it('should be unlocked', () => {
-			expect(mutex.locked).to.equal(false);
+			expect(mutex.lock()).to.equal(true);
+			expect(mutex.locked).to.equal(true);
 		});
 	});
 
-	describe('asynchronous', () => {
-		let mutex = new Mutex();
-
-		it('should lock', () => {
-			return mutex.asynchronous();
+	describe('Asynchronous', () => {
+		it('should lock and unlock', () => {
+			return mutex.asynchronous()
+				.then(() => mutex.unlock())
+				.then(() => {
+					expect(mutex.locked).to.equal(false);
+				});
 		});
 
-		it('should reject the lock', (done) => {
-			mutex.asynchronous()
-				.then(() => done(new Error()))
-				.catch(() => done());
+		it('should reject the lock', () => {
+			return mutex.asynchronous()
+				.then(() => mutex.asynchronous())
+				.then(() => Promise.reject())
+				.catch(() => Promise.resolve());
 		});
 	});
 
-	describe('delayed', () => {
-		let mutex = new Mutex();
-
+	describe('Delayed', () => {
 		it('should lock', () => {
 			return mutex.delayed(500);
 		});
 
-		it('should reject the lock', (done) => {
-			mutex.delayed(500)
-				.then(() => done(new Error()))
-				.catch(() => done());
+		it('should reject the lock', () => {
+			return mutex.delayed(500)
+				.then(() => mutex.delayed(500))
+				.then(() => Promise.reject())
+				.catch(() => Promise.resolve());
 		});
 
 		it('should be unlocked', (done) => {
-			setTimeout(() => {
-				expect(mutex.locked).to.equal(false);
-				done();
-			}, 500);
+			mutex.delayed(500)
+				.then(() => {
+					setTimeout(() => {
+						expect(mutex.locked).to.equal(false);
+						done();
+					}, 500);
+				});
 		});
 	});
 });
