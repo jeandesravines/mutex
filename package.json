@@ -1,14 +1,14 @@
 {
 	"name": "@jdes/mutex",
 	"private": false,
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Asynchronous, synchronous and delayed Mutex with Promises.",
 	"author": "Jean Desravines <hi@jeandesravines.com> (http://www.jeandesravines.com)",
 	"scripts": {
 		"test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha -- -R spec",
 		"coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
 	},
-	"main": "lib/Mutex.js",
+	"main": "lib/service/Mutex.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/jeandesravines/mutex.git"

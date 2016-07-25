@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * Copyright 2016 Jean Desravines <hi@jeandesravines.com>
+ */
+
 const {afterEach, beforeEach, describe, it} = require('mocha');
 const {expect, should} = require('chai');
 const Mutex = require('../lib/service/Mutex');
