@@ -8,7 +8,7 @@
 		"test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha -- -R spec",
 		"coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
 	},
-	"main": "lib/service/Mutex.js",
+	"main": "lib/helper/mutex.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/jeandesravines/mutex.git"
