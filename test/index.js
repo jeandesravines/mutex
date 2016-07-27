@@ -58,14 +58,14 @@ describe('Mutex', () => {
 				.catch(() => Promise.resolve());
 		});
 
-		it('should be unlocked', (done) => {
-			mutex.delayed(500)
-				.then(() => {
+		it('should be unlocked', () => {
+			return mutex.delayed(500)
+				.then(() => new Promise((resolve, reject) => {
 					setTimeout(() => {
 						expect(mutex.locked).to.equal(false);
-						done();
+						resolve();
 					}, 500);
-				});
+				}));
 		});
 	});
 });
