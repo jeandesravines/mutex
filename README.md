@@ -10,7 +10,7 @@ Asynchronous, synchronous and delayed Mutex with ES6 and Promises.
 
 * [Setup](#setup)
 * [Usage](#usage)
-* [Api](#api)
+* [API](#api)
     * [Properties](#properties) 
     * [Methods](#methods) 
 * [Contributing](#contributing) 
