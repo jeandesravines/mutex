@@ -1,11 +1,7 @@
 {
 	"name": "@jdes/mutex",
 	"private": false,
-<<<<<<< HEAD
-	"version": "1.0.7",
-=======
 	"version": "1.0.8",
->>>>>>> master
 	"description": "Asynchronous, synchronous and delayed Mutex with Promises.",
 	"author": "Jean Desravines <hi@jeandesravines.com> (http://www.jeandesravines.com)",
 	"scripts": {
