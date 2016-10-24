@@ -66,8 +66,9 @@ mutex.asynchronous()
 // This section try to lock every 100ms but the delay accept to be locked every 200ms.
 const interval = setInterval(() => {
     mutex.delayed(200)
+        .then(() => iterations++)
         .then(() => {
-            if (++iterations === 5) {
+            if (iterations === 5) {
                 clearInterval(interval);
             } else {
                 console.log(iterations);
