@@ -5,8 +5,8 @@
  */
 
 const {afterEach, beforeEach, describe, it} = require('mocha');
-const {expect, should} = require('chai');
-const Mutex = require('../../lib/helper/mutex');
+const {expect} = require('chai');
+const Mutex = require('../../../lib/helper/mutex');
 
 describe('Mutex', () => {
 	/**

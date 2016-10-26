@@ -1,4 +1,8 @@
-language: 'node_js'
+language: "node_js"
 node_js:
-    - '6'
-after_success: 'npm run coveralls'
+    - "6"
+script:
+    - "npm run lint"
+    - "npm run test"
+after_success: 
+    - "npm run coveralls"
