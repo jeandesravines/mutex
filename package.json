@@ -46,8 +46,8 @@
 			"commit-msg": "simple",
 			"post-checkout": "sudo npm run clean",
 			"post-commit": "git status",
-			"pre-commit": "sudo npm run lint",
-			"pre-push": "sudo npm run test"
+			"pre-commit": "sudo npm run --silent lint",
+			"pre-push": "sudo npm run --silent test"
 		}
 	}
 }
