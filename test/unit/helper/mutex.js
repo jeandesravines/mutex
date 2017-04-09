@@ -1,3 +1,7 @@
+/**
+ * Copyright 2017 Jean Desravines <hi@jeandesravines.com>
+ */
+
 'use strict';
 
 const {beforeEach, describe, it} = require('mocha');
