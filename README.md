@@ -11,10 +11,8 @@ Asynchronous, synchronous and delayed Mutex with ES6 and Promises.
 * [Setup](#setup)
 * [Usage](#usage)
 * [API](#api)
-    * [Properties](#properties) 
-    * [Methods](#methods) 
-* [Contributing](#contributing) 
-* [Tests](#tests) 
+  * [Properties](#properties) 
+  * [Methods](#methods) 
 
 
 ## Setup
@@ -32,7 +30,7 @@ Import module:
 /**
  * @class {Mutex}
  */
-const Gpio = require('@jdes/mutex');
+const Mutex = require('@jdes/mutex');
 ```
 
 Instantiate:
@@ -41,39 +39,39 @@ Instantiate:
 /**
  * @type {Mutex}
  */
-let mutex = new Mutex();
+const mutex = new Mutex();
 ```
 
 Example:
 
 ```javascript
 // Instantiate
-let mutex = new Mutex(),
-    name = null,
-    iterations = 0;
+const mutex = new Mutex();
+let name = null;
+let iterations = 0;
 
 // Lock and perform and unlock asynchronously
 mutex.asynchronous()
-    .then((unlock) => {
-    	name = 'Jean Desravines';
-    	unlock();
-    })
-    .catch(() => {
-    	console.error('Mutex is locked');
-    });
+  .then((unlock) => {
+    name = 'Jean Desravines';
+    unlock();
+  })
+  .catch(() => {
+    console.error('Mutex is locked');
+  });
 
 // Lock, perform and unlock asynchronously with delay.
 // This section try to lock every 100ms but the delay accept to be locked every 200ms.
 const interval = setInterval(() => {
-    mutex.delayed(200)
-        .then(() => iterations++)
-        .then(() => {
-            if (iterations === 5) {
-                clearInterval(interval);
-            } else {
-                console.log(iterations);
-            }
-        });
+  mutex.delayed(200)
+    .then(() => iterations++)
+    .then(() => {
+      if (iterations === 5) {
+        clearInterval(interval);
+      } else {
+        console.log(iterations);
+      }
+    });
 }, 100);
 ```
 
@@ -104,9 +102,9 @@ Example:
 
 ```javascript
 if (mutex.lock()) {
-    console.log('Success');
+  console.log('Success');
 } else {
-    console.error('Error');
+  console.error('Error');
 }
 ```
 
@@ -120,9 +118,9 @@ Example:
 
 ```javascript
 mutex.unlock()
-    .then(() => {
-        console.log('Unlocked');
-    });
+  .then(() => {
+    console.log('Unlocked');
+  });
 ```
 
 #### asynchronous(): Promise
@@ -135,10 +133,10 @@ Example:
 
 ```javascript
 mutex.asynchronous()
-    .then((unlock) => {
-        // Unlock after 1s
-        setTimeout(unlock, 1000);
-    });
+  .then((unlock) => {
+    // Unlock after 1s
+    setTimeout(unlock, 1000);
+  });
 ```
 
 #### delayed(delay: number): Promise
@@ -161,28 +159,13 @@ Example:
 ```javascript
 let iterations = 0;
 const interval = setInterval(() => {
-    mutex.delayed(200)
-        .then(() => {
-            if (iterations++ === 5) {
-                clearInterval(interval);
-            } else {
-                console.log(iterations);
-            }
-        });
+  mutex.delayed(200)
+    .then(() => {
+      if (iterations++ === 5) {
+        clearInterval(interval);
+      } else {
+        console.log(iterations);
+      }
+    });
 }, 100);
 ```
-
-## Contributing
-
-Contributions are appreciated, both in the form of bug reports and pull requests.
-All pull requests have to pass tests and have a sufficient coverage.
-
-## Tests
-
-You can run the tests with npm:
-```shell
-npm test
-```
-
-The tests use [Mocha](http://mochajs.org) as the test framework and [Chai](http://http://chaijs.com) as the BDD assertion framework.
-The coverage is measured with [Istanbul](https://github.com/gotwarlost/istanbul).
