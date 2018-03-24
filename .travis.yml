@@ -1,8 +1,15 @@
-language: "node_js"
+language: node_js
+cache: yarn
 node_js:
-    - "6"
+  - "6"
+  - "node"
+
+before_script:
+  - yarn global add codecov
+
 script:
-    - "npm run lint"
-    - "npm run test"
-after_success: 
-    - "npm run coveralls"
+  - yarn lint
+  - yarn test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
