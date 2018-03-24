@@ -1,7 +1,7 @@
 # Mutex
 
 [![Build Status](https://travis-ci.org/jeandesravines/mutex.svg)](https://travis-ci.org/jeandesravines/mutex)
-[![Coverage Status](https://coveralls.io/repos/github/jeandesravines/mutex/badge.svg?branch=master)](https://coveralls.io/github/jeandesravines/mutex?branch=master)
+[![codecov](https://codecov.io/gh/jeandesravines/mutex/branch/master/graph/badge.svg)](https://codecov.io/gh/jeandesravines/mutex)
 
 Asynchronous, synchronous and delayed Mutex with ES6 and Promises.
 
@@ -17,9 +17,9 @@ Asynchronous, synchronous and delayed Mutex with ES6 and Promises.
 
 ## Setup
 
-This module can then be installed with npm:
+This module can then be installed with yarn:
 ```shell
-npm install @jdes/mutex
+yarn add @jdes/mutex
 ```
 
 ## Usage
