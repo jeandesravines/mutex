@@ -28,17 +28,17 @@ describe('Mutex', () => {
   describe('Asynchronous', () => {
     it('should lock and unlock', () => {
       return mutex.asynchronous()
-        .then(() => mutex.unlock())
-        .then(() => {
-          expect(mutex.locked).to.be.equal(false);
-        });
+          .then(() => mutex.unlock())
+          .then(() => {
+            expect(mutex.locked).to.be.equal(false);
+          });
     });
 
     it('should reject the lock', () => {
       return mutex.asynchronous()
-        .then(() => mutex.asynchronous())
-        .then(() => Promise.reject())
-        .catch(() => Promise.resolve());
+          .then(() => mutex.asynchronous())
+          .then(() => Promise.reject(new Error('LOCKED')))
+          .catch(() => Promise.resolve());
     });
   });
 
@@ -49,19 +49,19 @@ describe('Mutex', () => {
 
     it('should reject the lock', () => {
       return mutex.delayed(500)
-        .then(() => mutex.delayed(500))
-        .then(() => Promise.reject())
-        .catch(() => Promise.resolve());
+          .then(() => mutex.delayed(500))
+          .then(() => Promise.reject(new Error('LOCKED')))
+          .catch(() => Promise.resolve());
     });
 
     it('should be unlocked', () => {
       return mutex.delayed(500)
-        .then(() => new Promise((resolve) => {
-          setTimeout(() => {
-            expect(mutex.locked).to.be.equal(false);
-            resolve();
-          }, 500);
-        }));
+          .then(() => new Promise((resolve) => {
+            setTimeout(() => {
+              expect(mutex.locked).to.be.equal(false);
+              resolve();
+            }, 500);
+          }));
     });
   });
 });

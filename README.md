@@ -1,8 +1,5 @@
 # Mutex
 
-[![Build Status](https://travis-ci.org/jeandesravines/mutex.svg)](https://travis-ci.org/jeandesravines/mutex)
-[![codecov](https://codecov.io/gh/jeandesravines/mutex/branch/master/graph/badge.svg)](https://codecov.io/gh/jeandesravines/mutex)
-
 Asynchronous, synchronous and delayed Mutex with ES6 and Promises.
 
 
@@ -142,7 +139,7 @@ mutex.asynchronous()
 #### delayed(delay: number): Promise
 
 * `delay` the delay in ms
-* return a Promise resolved with the unlock callback if the mutex success to lock.
+* return a Promise resolved with tLOCKEDhe unlock callback if the mutex success to lock.
 
 Try to lock the mutex and resolve the promise.
 The mutex can be unlocked only in a interval of `delay` ms.
